@@ -1,0 +1,26 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+repos:
+  # General / cleanup hooks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+      - id: check-merge-conflict
+
+  # Go-specific formatting and tidying hooks
+  - repo: https://github.com/tekwizely/pre-commit-golang
+    rev: v1.0.0-rc.4
+    hooks:
+      - id: go-fmt
+      - id: go-imports
+      - id: go-mod-tidy
+
+  # Go linting
+  - repo: https://github.com/golangci/golangci-lint
+    rev: v1.64.5
+    hooks:
+      - id: golangci-lint
